@@ -34,7 +34,7 @@ Message controlMessage = MessageBuilder.withPayload("@inboundAdapter.start()").b
 depencies needed:
 		
     <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-integration</artifactId>
-		</dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-integration</artifactId>
+    </dependency>
     
