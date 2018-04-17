@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:context="http://www.springframework.org/schema/context"
+ xmlns:stream="http://www.springframework.org/schema/integration/stream"  
+ xmlns:int="http://www.springframework.org/schema/integration"  
+ xsi:schemaLocation="http://www.springframework.org/schema/beans  http://www.springframework.org/schema/beans/spring-beans.xsd    
+        http://www.springframework.org/schema/integration/stream http://www.springframework.org/schema/integration/stream/spring-integration-stream.xsd
+        http://www.springframework.org/schema/context  http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd">
+
+ <context:component-scan base-package="com.example.demo"/>
+ <context:annotation-config/>
+ 
+
+ <int:channel id="inBoundChannel"/>
+ <int:channel id="outBoundChannel">
+ 	<int:queue/>
+ </int:channel>
+
+<int:service-activator ref="helloService" input-channel="inBoundChannel" 
+             method="greet"  output-channel="outBoundChannel"/>
+
+<bean id ="helloService" class="com.example.demo.HelloService">
+	<constructor-arg type="java.lang.String" value="Gopala Krishnan"/>
+</bean>
+ </beans>
