@@ -16,4 +16,5 @@ https://github.com/gtechgithub/Spring-integration/blob/master/4.GatewayExample/r
 
 
 Gateway with Enricher along with Service activator 
+
 https://github.com/gtechgithub/Spring-integration/blob/master/5.GatewayWithEnricher/readme.txt
