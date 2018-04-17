@@ -9,3 +9,7 @@ https://github.com/gtechgithub/Spring-integration/blob/master/2.AttributeOperati
 Service Activator
 
 https://github.com/gtechgithub/Spring-integration/tree/master/3.ServiceActivatorExample
+
+Gateway with Service Activator
+
+https://github.com/gtechgithub/Spring-integration/blob/master/4.GatewayExample/readme.txt
