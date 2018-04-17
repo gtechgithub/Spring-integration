@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:int="http://www.springframework.org/schema/integration"
+	xsi:schemaLocation="http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+		
+	<int:channel id="findUserInputChannel"/>
+	<int:channel id="findUserbyUserNameInputChannel"/>
+	<int:channel id="findUserServiceChannel"/>
+	<int:channel id="findUserByUserNameServiceChannel"/>
+	
+	<int:gateway service-interface="com.example.demo.UserService">
+		<int:method name="findUser" request-channel="findUserInputChannel"/>
+		<int:method name="findByUserName" request-channel="findUserbyUserNameInputChannel"/>
+	</int:gateway>
+
+	<int:enricher input-channel="findUserInputChannel" request-channel="findUserServiceChannel"> 
+		<int:property name="email" expression="payload.email"/>
+		<int:property name="password" expression="payload.password"/>
+	</int:enricher>
+
+	<int:enricher input-channel="findUserbyUserNameInputChannel" request-channel="findUserByUserNameServiceChannel"  
+	              request-payload-expression="payload.userName">
+		<int:property name="email" expression="payload.email"/>
+		<int:property name="password" expression="payload.password"/>
+	</int:enricher>
+	
+	<int:service-activator ref="systemService" method="findUser" input-channel="findUserServiceChannel"/>
+	<int:service-activator ref="systemService" method="findByUserName" input-channel="findUserByUserNameServiceChannel"/>
+	
+	<bean id="systemService" class="com.example.demo.SystemServiceImpl"/>
+</beans>		
