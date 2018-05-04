@@ -22,3 +22,7 @@ https://github.com/gtechgithub/Spring-integration/blob/master/5.GatewayWithEnric
 RSS Feed inbound Channel Adapter
 
 https://github.com/gtechgithub/Spring-integration/blob/master/6.FeedInBoundChannelAdapter/readme.txt
+
+File inbound outbound Adapter
+
+https://github.com/gtechgithub/Spring-integration/blob/master/7.FileInBoundChannelAdapter/readme.txt
