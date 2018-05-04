@@ -26,3 +26,7 @@ https://github.com/gtechgithub/Spring-integration/blob/master/6.FeedInBoundChann
 File inbound outbound Adapter
 
 https://github.com/gtechgithub/Spring-integration/blob/master/7.FileInBoundChannelAdapter/readme.txt
+
+http inbound channel adapter and gateway example
+
+https://github.com/gtechgithub/Spring-integration/tree/master/10.HttpInboundExample
