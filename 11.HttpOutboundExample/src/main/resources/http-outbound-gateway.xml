@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:int="http://www.springframework.org/schema/integration"
+	xmlns:int-http="http://www.springframework.org/schema/integration/http"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/integration
+    http://www.springframework.org/schema/integration/spring-integration.xsd
+    http://www.springframework.org/schema/integration/http
+    http://www.springframework.org/schema/integration/http/spring-integration-http.xsd">
+    
+    
+    <int:channel id="replyChannel">
+    	<int:queue capacity="10"/>
+    </int:channel>
+    
+    <int:channel id="requestChannel"/>
+    
+    <!--  basically in pom artifact "spring-boot-starter-web" 
+          is essential for int-http:outbound-gateway transcript -->
+
+    <int-http:outbound-gateway id="outboundGateway" request-channel="requestChannel"
+                               reply-channel="replyChannel" 
+                               http-method="GET" 
+                               url="http://localhost:8080/serverTime" 
+                               expected-response-type="com.example.demo.ServerMsg"/>
+</beans>    
