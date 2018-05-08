@@ -30,3 +30,8 @@ https://github.com/gtechgithub/Spring-integration/blob/master/7.FileInBoundChann
 http inbound channel adapter and gateway example
 
 https://github.com/gtechgithub/Spring-integration/tree/master/10.HttpInboundExample
+
+
+http outbound controller get example
+
+https://github.com/gtechgithub/Spring-integration/blob/master/11.HttpOutboundExample/readme.txt
